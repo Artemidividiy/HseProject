@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart' as prefix0;
 import 'package:flutter/widgets.dart';
-import 'package:clipboard_manager/clipboard_manager.dart';
 import 'list.dart' as taskList;
 
 void main() => runApp(MyApp());
@@ -17,11 +15,18 @@ class MyApp extends StatelessWidget{
   }
 }
 
-List<String> titles;
-List<int> days;
-List<IconData> icons;
+class MyHomePage extends StatefulWidget{
+  @override
+  MyHomePageState createState() => MyHomePageState(); 
+}
 
-class MyHomePage extends StatelessWidget{
+class MyHomePageState extends State<MyHomePage>{
+  final title_style = TextStyle(
+    fontFamily: 'Roboto',
+    fontSize: 16.0,
+    fontWeight: FontWeight.w500,
+    color : Colors.white24);
+
   Widget item_block(String text){
   return Container(
     child: Column(
@@ -33,66 +38,48 @@ class MyHomePage extends StatelessWidget{
           )
         ),
         Text(text)
-      ],
+      ], 
     ),
   );
 }
   @override
   Widget build(BuildContext context) {
-    
-  return Scaffold(
-      appBar: AppBar(
-        title: Text("profile",
-         style: title_style),
-        backgroundColor: Colors.black87,
-        ),
-        body: Column(
-          children: <Widget>[
-            Container(
-              padding: EdgeInsets.only(top : 1200.0),
-              width: 32.0,
-              height: 32.0,
-              child :
-                Image(
-                  image: NetworkImage("https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg"),
-                  color: Colors.white,
+
+    return Scaffold(
+        appBar: AppBar(
+          title: Text("profile",
+          style: title_style),
+          backgroundColor: Colors.black87,
+          ),
+          body: Column(
+            children: <Widget>[
+              Container(
+                padding: EdgeInsets.only(top : 1200.0),
+                width: 10.0,
+                height: 10.0,
+                child :
+                  Image(
+                    image: NetworkImage("https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg"),
+                    color: Colors.white,
+                  
+                  ),
+              ),
+              Container( 
+                padding : EdgeInsets.symmetric(vertical: 15.0),
+                child :
+              Row(
                 
-                ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                item_block("copy"),
-                item_block("share"),
-                item_block('settings')
-              ],
-            ),
-            taskList.TaskList(),
-            RaisedButton(
-              child: Text(
-                "add",
-                 style: TextStyle(
-                   fontFamily: 'Roboto',
-                    fontSize: 8.0),
-                    ),
-              color: Colors.amberAccent[400],
-              onPressed: (){
-                showBottomSheet(
-                  context: context,
-                  builder: (context) => Container(
-                    color: Colors.amberAccent[400],
-                  ));
-                  },
-                )
-          ]
-        )
-    );
-              
-  }
-  
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  item_block("copy"),
+                  item_block("share"),
+                  item_block('settings')
+                ],
+              )
+              ),
+              taskList.TaskList(),
+            ]
+          )
+      );           
+    }
 }
-final title_style = TextStyle(
-    fontFamily: 'Roboto',
-    fontSize: 16.0,
-    fontWeight: FontWeight.w500,
-    color : Colors.white24);
