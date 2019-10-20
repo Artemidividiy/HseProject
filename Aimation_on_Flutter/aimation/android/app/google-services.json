@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "692992995401",
+    "firebase_url": "https://aimation-de5ac.firebaseio.com",
+    "project_id": "aimation-de5ac",
+    "storage_bucket": "aimation-de5ac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692992995401:android:b1499ca629589b895b4f98",
+        "android_client_info": {
+          "package_name": "com.xiv.aimation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "692992995401-s08psel476cq2t45sm1f0eavud1qq9ns.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSpdsQTF6XP9tDFcORigdO6vdV6uiFGTc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "692992995401-s08psel476cq2t45sm1f0eavud1qq9ns.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

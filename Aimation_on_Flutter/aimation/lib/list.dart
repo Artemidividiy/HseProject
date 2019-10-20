@@ -1,38 +1,61 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'dart:async';
-import 'package:aimation/tasks.json';
-import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class TaskList extends StatefulWidget{
   @override
   TaskListState createState() =>  TaskListState();
 }
 
-class Data{
-  final int index;
+class Data {
   final String title;
+  final String subTitle;
   final int deadlineDate;
+  final DocumentReference reference;
 
-  Data(this.index, this.title, this.deadlineDate);
+  Data(this.title, this.subTitle, this.deadlineDate, this.reference);
 }
 
-
 class TaskListState extends State<TaskList>{
-  Future<List<Data>> _getData() async {
-    var data = await http.get()
-  }
+  final _titleStyle = TextStyle(
+    fontFamily: 'Roboto',
+    color: Colors.amberAccent[200],
+    fontSize: 20.0
+  );
 
-  final _listTile = ListTile(
-    leading: Icon(
-      Icons.add,
-    ),
-    title: ,
-  )
-  
-  @override
-  Widget build(BuildContext context){
-    return ListView.builder(  
-      
+  final _subsStyle = TextStyle(
+    fontSize: 8.0,
+    color: Colors.amberAccent[300],
+  );
+
+  Widget _buildListItem(BuildContext context, Data data){
+    return ListTile(
+      title: Text(data.title, style: _titleStyle,),
+      subtitle: Text(data.subTitle, style : _subsStyle),
+      trailing: Text(data.deadlineDate.toString(), style: TextStyle(
+        color: Colors.amberAccent[400],
+        fontSize: 12.0,
+        fontStyle: FontStyle.italic
+      ),),
     );
   }
+  @override
+  Widget build(BuildContext context){
+    return Container(
+        child: StreamBuilder(
+          stream: Firestore.instance.collection('users/user_one/tasks/task1').snapshots(),
+          builder: (context, snapshot){
+            if(!snapshot.hasData) return Text("loading...", style : TextStyle(fontSize: 40.0));
+            return ListView.builder(
+              itemCount: snapshot.data.documents.length,
+              itemBuilder : (context, index) =>
+                _buildListItem(context, snapshot.data.documents[index])
+            );
+          }
+        )
+    );
+  }
+        
 }

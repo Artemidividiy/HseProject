@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as prefix0;
 import 'package:flutter/widgets.dart';
 import 'package:clipboard_manager/clipboard_manager.dart';
+import 'list.dart' as taskList;
 
 void main() => runApp(MyApp());
 
@@ -36,25 +37,6 @@ class MyHomePage extends StatelessWidget{
     ),
   );
 }
-
-Widget _tile(String title, int days, IconData ic){
-  return ListTile(
-    title: Text(title,
-    style : title_style,
-    ),
-    subtitle: Text('${days} days to next dedline',
-     style: TextStyle(
-       fontFamily: 'Roboto',
-       fontSize: 8.0,
-       color: Colors.amberAccent[400]
-     ),
-     ),
-     leading: Icon(
-       ic,
-       color : Colors.amberAccent[400]
-     ),
-  );
-}
   @override
   Widget build(BuildContext context) {
     
@@ -85,16 +67,7 @@ Widget _tile(String title, int days, IconData ic){
                 item_block('settings')
               ],
             ),
-            ListView(
-              shrinkWrap: true,
-              padding: const EdgeInsets.all(20.0),
-              children: <Widget>[
-                const Text('I\'m dedicating every day to you'),
-                const Text('Domestic life was never quite my style'),
-                const Text('When you smile, you knock me out, I fall apart'),
-                const Text('And I thought I was so smart'),
-              ],
-            ),
+            taskList.TaskList(),
             RaisedButton(
               child: Text(
                 "add",
