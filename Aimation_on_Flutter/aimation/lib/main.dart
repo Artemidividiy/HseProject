@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'list.dart' as taskList;
 
@@ -42,6 +43,7 @@ class MyHomePageState extends State<MyHomePage>{
     ),
   );
 }
+  ClipboardData cbd = null;
   @override
   Widget build(BuildContext context) {
 
@@ -71,7 +73,15 @@ class MyHomePageState extends State<MyHomePage>{
                 
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  item_block("copy"),
+                  Container(
+                    child: IconButton(icon: Icon(Icons.content_copy),
+                    onPressed: () {
+                     Clipboard.getData("copied!");
+                     SnackBar page = SnackBar(content: Text("copied"),);
+                      
+                    }
+                    ),
+                  ),
                   item_block("share"),
                   item_block('settings')
                 ],

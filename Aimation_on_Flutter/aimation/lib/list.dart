@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-
+import 'package:clipboard_manager/clipboard_manager.dart';
 
 class TaskList extends StatefulWidget{
   @override
@@ -129,7 +129,6 @@ class TaskListState extends State<TaskList>{
             onPressed: (){
               _showModalBottomSheet(context);
             },
-             
             ),
           
           RaisedButton(
@@ -182,7 +181,6 @@ class TaskListState extends State<TaskList>{
                   datas.add(Data("new Task", "subs", 21));
                   Navigator.pop(context);
                 });
-                
               },
               ) 
               )
