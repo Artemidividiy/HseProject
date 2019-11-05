@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Flutter Plugins" type="FlutterPluginsLibraryType">
+    <CLASSES>
+      <root url="file://$USER_HOME$/Downloads/flutter_windows_v1.9.1+hotfix.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/local_auth-0.6.0+1" />
+      <root url="file://$USER_HOME$/Downloads/flutter_windows_v1.9.1+hotfix.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-0.5.0+1" />
+      <root url="file://$USER_HOME$/Downloads/flutter_windows_v1.9.1+hotfix.2-stable/flutter/.pub-cache/hosted/pub.dartlang.org/sqflite-1.1.7+2" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
